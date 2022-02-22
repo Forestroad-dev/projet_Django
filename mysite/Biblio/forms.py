@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm,PasswordC
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import User
+from .models import *
 
 
 class CustomUserCreationForm(UserCreationForm,forms.Form):
@@ -43,3 +43,124 @@ class CustomUserAdmin(UserAdmin):
     )
     search_fields = ('email',)
     ordering = ('email',)
+
+class EpreuveForm(forms.ModelForm):
+    class Meta:
+        model = Epreuve
+        
+    nom = forms.CharField(
+        required=True,
+        label="Nom",
+        error_messages={
+            'required':'veuillez saisir le nom de l\'epreuve svp',
+            },
+        widget=forms.TextInput(
+            attrs={
+                'type':'text',
+                'class':'form-control'
+            }
+        )
+    )
+    matiere = forms.CharField(
+        max_length=200,
+        label="Matiere",
+        required=True,
+        error_messages={
+            'required':'veuillez saisir le nom de la matiere svp',
+            'max_length':'vous avez dépassé le nombre maximal de caractères autorisé'
+            },
+        widget=forms.TextInput(
+            attrs={
+                'type':'text',
+                'class':'form-control'
+            }
+        )
+    )
+    filiere = forms.CharField(
+        max_length=200,
+        label="Filiere",
+        required=True,
+        error_messages={
+            'required':'veuillez saisir le nom de la filiere svp',
+            'max_length':'vous avez dépassé le nombre maximal de caractères autorisé'
+            },
+        widget=forms.TextInput(
+            attrs={
+                'type':'text',
+                'class':'form-control'
+            }
+        )
+    )
+    nomProfesseur = forms.CharField(
+        max_length=200,
+        label="Nom du professeur",
+        required=True,
+        error_messages={
+            'required':'veuillez saisir le nom du professeur svp',
+            'max_length':'vous avez dépassé le nombre maximal de caractères autorisé'
+            },
+        widget=forms.TextInput(
+            attrs={
+                'type':'text',
+                'class':'form-control'
+            }
+        )
+    )
+    contenu = forms.FileField(
+        allow_empty_file=True,
+        label="entrez le fichier de l'epreuve",
+        widget=forms.FileInput
+    )
+
+class CorrectionForm(forms.ModelForm):
+    class Meta:
+        model = Correction
+        
+    nom = forms.CharField(
+        required=True,
+        label="Nom",
+        error_messages={
+            'required':'veuillez saisir le nom de l\'epreuve svp',
+            },
+        widget=forms.TextInput(
+            attrs={
+                'type':'text',
+                'class':'form-control'
+            }
+        )
+    )
+    matiere = forms.CharField(
+        max_length=200,
+        label="Matiere",
+        required=True,
+        error_messages={
+            'required':'veuillez saisir le nom de la matiere svp',
+            'max_length':'vous avez dépassé le nombre maximal de caractères autorisé'
+            },
+        widget=forms.TextInput(
+            attrs={
+                'type':'text',
+                'class':'form-control'
+            }
+        )
+    )
+    filiere = forms.CharField(
+        max_length=200,
+        label="Filiere",
+        required=True,
+        error_messages={
+            'required':'veuillez saisir le nom de la filiere svp',
+            'max_length':'vous avez dépassé le nombre maximal de caractères autorisé'
+            },
+        widget=forms.TextInput(
+            attrs={
+                'type':'text',
+                'class':'form-control'
+            }
+        )
+    )
+    contenu = forms.FileField(
+        allow_empty_file=True,
+        label="entrez le fichier de l'epreuve",
+        widget=forms.FileInput
+    )

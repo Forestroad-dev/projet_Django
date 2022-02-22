@@ -55,4 +55,36 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_update_url(self):
         return reverse('update',kwargs={'pk':self.id})
         
+class Epreuve(models.Model):
+    id = models.IntegerField(primary_key=True)
+    nom = models.CharField(max_length=100)
+    matiere = models.CharField(max_length=200)
+    filiere = models.CharField(max_length=200)
+    nomProfesseur = models.CharField(max_length=100)
+    contenu = models.FileField(upload_to="sujets/%Y/%m/%d")
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
+    idUser = models.ForeignKey(User,on_delete=models.CASCADE,related_name="creator")
+
+    def get_update_url(self):
+        return reverse('update',kwargs={'pk':self.id})
     
+    def get_delete_url(self):
+        return reverse('delete',kwargs={'pk':self.id})
+
+class Correction(models.Model):
+    id = models.IntegerField(primary_key=True)
+    nom = models.CharField(max_length=100)
+    matiere = models.CharField(max_length=200)
+    filiere = models.CharField(max_length=200)
+    contenu = models.FileField(upload_to="corrections/%Y/%m/%d")
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
+    idUser = models.ForeignKey(User,on_delete=models.CASCADE,related_name="creator")
+    idEpreuve = models.ForeignKey(Epreuve,on_delete=models.CASCADE,related_name="epreuve")
+
+    def get_update_url(self):
+        return reverse('update',kwargs={'pk':self.id})
+    
+    def get_delete_url(self):
+        return reverse('delete',kwargs={'pk':self.id})
