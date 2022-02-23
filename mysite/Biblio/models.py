@@ -64,7 +64,7 @@ class Epreuve(models.Model):
     contenu = models.FileField(upload_to="sujets/%Y/%m/%d")
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
-    idUser = models.ForeignKey(User,on_delete=models.CASCADE,related_name="creator")
+    idUser = models.ForeignKey(User,on_delete=models.CASCADE,related_name="createur")
 
     def get_update_url(self):
         return reverse('update',kwargs={'pk':self.id})
