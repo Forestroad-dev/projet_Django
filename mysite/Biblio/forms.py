@@ -44,13 +44,124 @@ class CustomUserAdmin(UserAdmin):
     search_fields = ('email',)
     ordering = ('email',)
 
-class EpreuveForm(forms.ModelForm):
-    class Meta:
-        model = Epreuve
-        fields = ['nom','matiere','filiere','nomProfesseur','contenu']
+class EpreuveForm(forms.Form):
+    nom = forms.CharField(
+        required=True,
+        label="Nom",
+        error_messages={
+            'required':'veuillez saisir le nom de l\'epreuve svp',
+            },
+        widget=forms.TextInput(
+            attrs={
+                'type':'text',
+                'class':'form-control'
+            }
+        )
+    )
+    matiere = forms.CharField(
+        max_length=200,
+        label="Matiere",
+        required=True,
+        error_messages={
+            'required':'veuillez saisir le nom de la matiere svp',
+            'max_length':'vous avez dépassé le nombre maximal de caractères autorisé'
+            },
+        widget=forms.TextInput(
+            attrs={
+                'type':'text',
+                'class':'form-control'
+            }
+        )
+    )
+    filiere = forms.CharField(
+        max_length=200,
+        label="Filiere",
+        required=True,
+        error_messages={
+            'required':'veuillez saisir le nom de la filiere svp',
+            'max_length':'vous avez dépassé le nombre maximal de caractères autorisé'
+            },
+        widget=forms.TextInput(
+            attrs={
+                'type':'text',
+                'class':'form-control'
+            }
+        )
+    )
+    nomProfesseur = forms.CharField(
+        required=True,
+        label="Nom du prof",
+        error_messages={
+            'required':'veuillez saisir le nom de l\'epreuve svp',
+            },
+        widget=forms.TextInput(
+            attrs={
+                'type':'text',
+                'class':'form-control'
+            }
+        )
+    )
+    contenu = forms.FileField(
+        allow_empty_file=True,
+        label="upload",
+        widget=forms.FileInput(
+            attrs={
+                'class':'form-control'
+            }
+        )
+    )
         
     
-class CorrectionForm(forms.ModelForm):
-    class Meta:
-        model = Correction
-        fields = ['nom','matiere','filiere','contenu']
+class CorrectionForm(forms.Form):
+    nom = forms.CharField(
+        required=True,
+        label="Nom",
+        error_messages={
+            'required':'veuillez saisir le nom de l\'epreuve svp',
+            },
+        widget=forms.TextInput(
+            attrs={
+                'type':'text',
+                'class':'form-control'
+            }
+        )
+    )
+    matiere = forms.CharField(
+        max_length=200,
+        label="Matiere",
+        required=True,
+        error_messages={
+            'required':'veuillez saisir le nom de la matiere svp',
+            'max_length':'vous avez dépassé le nombre maximal de caractères autorisé'
+            },
+        widget=forms.TextInput(
+            attrs={
+                'type':'text',
+                'class':'form-control'
+            }
+        )
+    )
+    filiere = forms.CharField(
+        max_length=200,
+        label="Filiere",
+        required=True,
+        error_messages={
+            'required':'veuillez saisir le nom de la filiere svp',
+            'max_length':'vous avez dépassé le nombre maximal de caractères autorisé'
+            },
+        widget=forms.TextInput(
+            attrs={
+                'type':'text',
+                'class':'form-control'
+            }
+        )
+    )
+    contenu = forms.FileField(
+        allow_empty_file=True,
+        label="upload",
+        widget=forms.FileInput(
+            attrs={
+                'class':'form-control'
+            }
+        )
+    )
