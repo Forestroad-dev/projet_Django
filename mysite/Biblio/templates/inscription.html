@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"  href="{% static 'css/bootstrap.css' %}">
+</head>
+<body style="background-color: rgba(177, 202, 179, 0.76);">
+    <div>
+        <nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #60a786;">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"> 
+                  <strong>E-learning</strong> 
+                  <img src="{% static 'image/img2.jpeg' %}" alt="" width="100" height="70" style="margin-left: 550%;">
+                </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"  style="margin-left: 500%;"><button class="btn btn-secondary btn-sm" type="button">SeConnecter</button></a>    
+
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" style="margin-left: 700%;"><button class="btn btn-secondary btn-sm" type="button">Apropos</button></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" style="margin-left: 800%;"><button class="btn btn-secondary btn-sm" type="button">Contact</button></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+          <div>
+            <div class="card bg-white">
+              <img src= "{% static 'image/img1.jpeg' %}" class="card-img img-fluid" alt="" style="width: 100%; height: 350px;">
+              <div class="card-img-overlay">
+              </div>
+            </div>
+        
+          </div>
+          <div class="container row w-25 w-25-sm p-0-sm bg-light mx-auto shadow-lg mt-5 mb-5" style="margin-bottom: -10%;">
+            <h1 class="mx-auto text-center mt-5">INSCRIPTION</h1>
+            <div class="col my-5">
+                <div>
+          <form action="" method="post">
+            <div class="form-group"><input type="text" placeholder="Nom" class="form-control my-3" name="nom"></div>
+            <div class="form-group"><input type="text" placeholder="Prenom" class="form-control my-3" name="prenom"></div>
+            <div class="form-group"><input type="email" placeholder="Email" class="form-control my-3" name="prenom"></div>
+            
+            <label>Profil</label>
+            <select class="form-control" id="Profil" name="profil">
+                <option value="AD">Admin</option>
+                <option value="US">User</option>
+            </select>
+
+            <div class="form-group"><input type="password" placeholder="Mot de passe" class="form-control my-3" name="motdepasse"></div>
+            <div class="form-group"><input type="password" placeholder="Confirmer mot de passe" class="form-control my-3" name="confirmermdp"></div>
+                            
+             <div class="form-group mx-auto text-center mt-5">
+                <button type="submit" class="btn bg-primary text-light">S'inscrire</button> 
+            </div>
+            <div class="btn-group">
+                <strong style="margin-top: 3%;">Deja inscrit ?</strong>
+                <a href="#" class="btn btn-sm-primary"><strong>Se Connecter</strong></a>
+              </div>
+        </form>
+                </div>
+            </div>
+          </div>
+
+          <div class="card mb-1" style="background-color: #60a786; margin-top: -3%;">
+            <div class="card-body">
+              <h3 class="card-title" style="margin-left: 45%;"><strong>E-learning</strong></h3>
+              <p class="card-text" style="margin-left: 33%;"><strong>Rocade Fann Bel Air Dakar - Rond Point ONU - Colobane, Dakar</strong></p>
+              <p class="card-text" style="margin-left: 40%;"><strong>+221 33 869 03 00 | http://www.esmt.sn/</strong></p>
+              <p class="card-text" style="margin-left: 35%;"><strong>________________________________________________________________</strong></p>
+              <p class="card-text" style="margin-left: 41%;"><strong>© E-Learning, All Right Reserved</strong></p>
+
+
+
+            </div>
+          </div>
+         
+
+
+
+    {% block content %} {% endblock content %}
+    </div>
+
+    <script src="{% static 'js/bootstrap.js' %}" ></script>
+</body>
+</html>

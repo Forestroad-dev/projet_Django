@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'accueil</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  </head>
+<body style="background-color: rgba(177, 202, 179, 0.76);">
+
+<div>
+  <nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #60a786;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"> <strong>E-learning</strong> </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="#"><strong>S'inscrire</strong></a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><strong>Se Connecter</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><strong>A propos</strong></a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#"><strong>Contact</strong></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div>
+    <div class="card bg-white">
+      <img src= "{% static 'image/img1.jpeg' %}" class="card-img img-fluid" alt="" style="width: 80%; margin-left: 20%;">
+      <div class="card-img-overlay">
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="card text-dark bg-light mb-3" style="max-width:17rem; margin-top: -60%;">
+      <div class="card-body">
+        <h5 class="card-title"><p class="card-text"><p style="margin-left: 10%;">Bienvenue sur la</p> <p style="margin-left: 17%;">bibliothèque</p> <p style="margin-left: 20%;">en ligne de </p> 
+          <p style="margin-left: 10%;">l'Ecole Supérieure</p> <p style="margin-left: 17%;">Multinationale</p> <p>des Télécommunications</p> </p>
+        </h5>
+      </div>
+    </div>
+  </div>
+  
+  <div>
+    <div class="card" style="width:17rem; margin-top:-2%;"> 
+      <img src="{% static 'image/img2.jpeg' %}" class="card-img-top" alt="" >
+    </div>
+  </div>
+
+  <div class="card mb-1" style="background-color: #60a786; margin-top: -0.3%; margin-left: 20%;">
+    <div class="card-body">
+      <h3 class="card-title" style="margin-left: 45%;"><strong>A propos</strong></h3>
+      <p class="card-text">L'école Supérieure Multinationale des Télécommunications (ESMT) situé a dakar, a été créer en 1981
+        a l'initiative de sept pays d'afrique de l'ouets (Bénin, Burkina Faso, Mali, Mauritanie, Niger, Sénégal, Togo),
+        dans le cadre d'un programme des nations unies pour le développement, avec le soutien de l'UIT. La Guinee Conakry
+        a rejoint les membres fondateurs en 1998. L'ESMT est un centre d'Excellence de l'union International des Télécommunications(UIT)
+        depuis 2000 et membres des trois (3) secteurs de l'UIT (2013). Elle est membre du CAMES   
+        <p style="margin-left: 80% ;"><a href="#" class="btn btn-sm-primary"><strong>En savoir Plus</strong></a></p>
+      </p>
+    </div>
+  </div>
+  <h3 class="text-center" style="margin-left: 25%; margin-top: 2%;"><strong>Epreuves récentes</strong></h3>
+
+  <div>
+    <div class="card text-dark"style="width: 18rem; margin-left: 15%; margin-top: 1%; background-color: rgba(147, 180, 150, 0.76);">
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center;">MATHS 3</h5>
+        <h6 class="card-subtitle mb-2 text-muted" style="margin-left: 35%; margin-top: -7%;">__________</h6>
+         <p><h7 class="card-title" style="margin-left: 37%;">M Toure</h7></p>
+        <p> <h7 class="card-title" style="margin-left: 40%;">LTI 2</h7></p>
+        <p><h7 class="card-title" style="margin-left: 40%;">2021</h7> </p>
+        <a href="#" class="card-link" style="margin-left: 40%;"><button class="btn btn-primary">Voir</button></a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem; margin-left: 40%; margin-top: -18.3%; background-color: #60a786;">
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center;">ORAS</h5>
+        <h6 class="card-subtitle mb-2 text-muted" style="margin-left: 42%; margin-top: -7%;">______</h6>
+        <p><h7 class="card-title" style="margin-left: 37%;">M Damoue</h7></p>
+        <p> <h7 class="card-title" style="margin-left: 45%;">LTI 1</h7></p>
+        <p><h7 class="card-title" style="margin-left: 45%;">2019</h7> </p>
+        <a href="#" class="card-link" style="margin-left: 40%;"><button class="btn btn-primary">Voir</button></a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem; margin-left: 65%; margin-top: -18.2%; background-color: rgba(147, 180, 150, 0.76);">
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center;">Management de Projet</h5>
+        <h6 class="card-subtitle mb-2 text-muted"  style="margin-left: 20%; margin-top: -7%;">______________________</h6>
+        <p><h7 class="card-title" style="margin-left: 37%;">M Onana</h7></p>
+        <p> <h7 class="card-title" style="margin-left: 45%;">LTI 3</h7></p>
+        <p><h7 class="card-title" style="margin-left: 45%;">2022</h7> </p>
+        <a href="#" class="card-link" style="margin-left: 40%;"><button class="btn btn-primary">Voir</button></a>
+      </div>
+    </div>
+  </div>
+  <!-- pied de page -->
+
+  <div class="card mb-1" style="background-color: #60a786; margin-top: 4%;">
+    <div class="card-body">
+      <h3 class="card-title" style="margin-left: 45%;"><strong>E-learning</strong></h3>
+      <p class="card-text" style="margin-left: 33%;"><strong>Rocade Fann Bel Air Dakar - Rond Point ONU - Colobane, Dakar</strong></p>
+      <p class="card-text" style="margin-left: 40%;"><strong>+221 33 869 03 00 | http://www.esmt.sn/</strong></p>
+      <p class="card-text" style="margin-left: 35%; margin-top: -2%;"><strong>________________________________________________________________</strong></p>
+      <p class="card-text" style="margin-left: 41%; margin-top: -1%;"><strong>© E-Learning, All Right Reserved</strong></p>
+
+    </div>
+  </div>
+  
+
+
+  {% block content %} {% endblock content %}
+</div>
+
+<script src="{% static 'js/bootstrap.js' %}" ></script>
+</body>
+</html>
