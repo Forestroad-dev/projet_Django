@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membres</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<style>
+body {
+    background-color: #E5E3C9;
+    }
+.navbar-custom {
+    padding: 0 24px;
+    background-color: #fff;
+    box-shadow: 0 0 35px 0 rgb(154 161 171 / 15%);
+    min-height: 70px;
+    position: fixed;
+    left: 260px px;
+    top: 0;
+    right: 0;
+    z-index: 1001;
+}
+</style>
+</head>
+<body>
+    <div>
+     <!------------------------------------------------nav------------------------------------------------------>
+      <div class="container" style="background-color: #90A68D; "  >
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <span class="fs-4 navbar-brand" style="margin-left:-18%;">E-learning</span>
+          </a>
+          <ul class="nav nav-pills" style="margin-left:50% ; margin-top: 0%;">
+            <li class="nav-item"><a href="login/connexion.html " class="nav-link active" aria-current="page">S'inscrire</a></li>
+            <li class="nav-item"><a href="login/connexion.html" class="nav-link text-white">Se Connecter</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white">A propos</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white">Contact</a></li>
+          </ul>
+        </header>
+      </div>
+         <!---------------x---------------------------------nav-----------------------------x------------------------->
+         <div>
+          <p style="color: #607677; margin-left: 20%;">Bienvenue sur la<br> bibliothèque<br> 
+          en ligne de <br>
+          l’Ecole Supérieure<br> Multinationale<br>
+          des Télécommunication</p>
+         </div>
+         <div>
+           <img src="{% static 'images/e-learning.jpeg' %}" alt="" style="width: 50%; margin-left: 50%; margin-top: -10%;">
+         </div>
+        {% block content %} {% endblock content %}
+    </div>
+    <div class="container"style="background-color: #B4CFB0; margin-top: 28%;">
+        <footer class="py-3 my-4">
+            <p class="nav justify-content-center  pb-3 mb-3">
+                <strong style="color: #789395;">E-learning</strong>
+            </p>
+            <p class="nav justify-content-center  pb-3 mb-3">
+                Rocade Fann Bel Air Dakar - Rond Point ONU - Colobane, Dakar</p>
+            <p class="nav justify-content-center pb-3 mb-3">+221 33 869 03 00 || http://www.esmt.sn/</p>
+
+            <p class="text-center text-muted">&copy; 2022 e-learning, Inc</p>
+        </footer>
+    </div>
+</body>
+</html>
