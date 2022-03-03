@@ -1,52 +1,30 @@
 {% extends 'base.html' %} 
 <!DOCTYPE html>
-{% load static %}
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>connexion</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
- <style>
-   body{
-     background-color: #E5E3C9;
-   }
- 
- </style>
+    
 </head>
 <body>
 <div>
     <!-- ----------------------------  Navigation ---------------------------------------------- -->
 
     <div class="container">
-      <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-          <img src="{% static 'images/esmt.jpeg' %}" class=" navbar-brand bi me-2" width="40" height="50" alt="esmt"></img>
-          <span class="fs-4 navbar-brand">E-learning</span>
-        </a>
-  
-        <ul class="nav nav-pills">
-          <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">S'inscrire</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">A propos</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-        </ul>
-      </header>
+      
       <!-- ----------x------------------  Navigation ------------------------x---------------------- -->
       <div class="b-example-divider"></div>
+      {% block content %}
       <div class="rounded-3 container w-25 h-100 mx-auto  mt-5 shadow-lg" style="background-color: #B4CFB0;border-radius: 25px;" >
         <div class="rounded card-header card-header-divider"style="border-radius: 50px;">Connexion</div>
         <div class="card-body">
           <form action="" method="">
        
             <div class="form-group">
-              <label>Email</label> <input class="form-control" type="email"
-                name="email"  parsley-trigger="change" required=""autocomplete="of">
+              <label>Email</label> <input class="form-control" type="email" name="email"  parsley-trigger="change" required=""autocomplete="of">
             </div>
             <div class="form-group">
               <label>Mot de Passe</label> <input class="form-control" type="password"
-                name="password" parsley-trigger="change" required=""
-                autocomplete="of">
+                name="password" parsley-trigger="change" required="" autocomplete="of">
             </div>
               <div class="row pt-0 pt-0 pt-lg-5 mx-1 align-items-center">
                   <div class="col-lg-6 pb-4 pb-lg-0"></div>
@@ -63,16 +41,4 @@
       </div>
     </div>
     <div class="b-example-divider"></div>
-
-<div class="container">
-  <footer class="py-3 my-4">
-    <p class="nav justify-content-center border-bottom pb-3 mb-3">
-     <strong style="color: #789395;">E-learning</strong> 
-    </p>
-    <p class="nav justify-content-center border-bottom pb-3 mb-3">
-      Rocade Fann Bel Air Dakar - Rond Point ONU - Colobane, Dakar<br>
-      +221 33 869 03 00 || http://www.esmt.sn/
-     </p>
-    <p class="text-center text-muted">&copy; 2021 Company, Inc</p>
-  </footer>
-</div>
+    {% endblock content %}

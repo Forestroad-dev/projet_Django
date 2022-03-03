@@ -11,7 +11,7 @@ from .forms import *
 # Create your views here.
 class LoginView(TemplateView):
 
-  template_name = 'index.html'
+  template_name = './login/connexion.html'
 
   def post(self, request, **kwargs):
 
@@ -51,7 +51,6 @@ def create_user(request,*args,**kwargs):
     if request.method == 'POST':
         form =CustomUserCreationForm(
            request.POST,
-           request.FILES,
            initial={
               
             }
@@ -265,3 +264,8 @@ def update_correction(request, *args, **kwargs):
             template_name=template_name,
             context=context
         )
+
+def index(request, *args, **kwargs):
+    template_name = "index.html"
+    context = {}
+    return render(request=request,template_name=template_name,context=context)

@@ -20,7 +20,8 @@ from django.contrib.auth.decorators import login_required
 
 
 urlpatterns = [
-    path('',LoginView.as_view(),name='home'),
+    path('',index,name='home'),
+    path('connexion/',LoginView.as_view(),name='connexion'),
     path('logout/', LogoutView.as_view(),name='logout'),
     path('inscription/',create_user,name='inscription'),
     path('biblio/', login_required(TemplateView.as_view(template_name='biblio.html'))),

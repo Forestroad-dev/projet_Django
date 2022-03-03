@@ -34,23 +34,15 @@ body {
             <span class="fs-4 navbar-brand" style="margin-left:-18%;">E-learning</span>
           </a>
           <ul class="nav nav-pills" style="margin-left:50% ; margin-top: 0%;">
-            <li class="nav-item"><a href="login/connexion.html " class="nav-link active" aria-current="page">S'inscrire</a></li>
-            <li class="nav-item"><a href="login/connexion.html" class="nav-link text-white">Se Connecter</a></li>
+            <li class="nav-item"><a href="/inscription/" class="nav-link text-white" aria-current="page">S'inscrire</a></li>
+            <li class="nav-item"><a href="/connexion/" class="nav-link text-white">Se Connecter</a></li>
             <li class="nav-item"><a href="#" class="nav-link text-white">A propos</a></li>
             <li class="nav-item"><a href="#" class="nav-link text-white">Contact</a></li>
           </ul>
         </header>
       </div>
          <!---------------x---------------------------------nav-----------------------------x------------------------->
-         <div>
-          <p style="color: #607677; margin-left: 20%;">Bienvenue sur la<br> bibliothèque<br> 
-          en ligne de <br>
-          l’Ecole Supérieure<br> Multinationale<br>
-          des Télécommunication</p>
-         </div>
-         <div>
-           <img src="{% static 'images/e-learning.jpeg' %}" alt="" style="width: 50%; margin-left: 50%; margin-top: -10%;">
-         </div>
+         
         {% block content %} {% endblock content %}
     </div>
     <div class="container"style="background-color: #B4CFB0; margin-top: 28%;">

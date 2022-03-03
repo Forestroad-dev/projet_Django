@@ -139,8 +139,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #user
 AUTH_USER_MODEL = 'Biblio.User'
 
+LOGIN_REDIRECT_URL = '/'
+
+
 LOGIN_REDIRECT_URL = '/biblio/'
-LOGIN_URL = '/'
+LOGIN_URL= '/'
 # TEMPLATE_DIRS = (
 #     BASE_DIR + '/templates/',
 # )
