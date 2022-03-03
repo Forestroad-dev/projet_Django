@@ -144,3 +144,124 @@ def changePassword_user(request,*args,**kwargs):
           update_session_auth_hash(request, user)  # Important!
           return redirect('home')
         return render(request=request,template_name=template_name,context=context,)
+
+def create_epreuve(request, *args, **kwargs):
+    template_name = 'create-epreuve.html'
+    obj = Epreuve()
+    if request.method == 'POST':
+        form= EpreuveForm(
+            request.POST,
+            request.FILES
+        )
+        context = {
+            'form':form
+        }
+        if form.is_valid():
+            print(form.cleaned_data)
+            obj.nom = form.cleaned_data.get('nom')
+            obj.matiere = form.cleaned_data.get('matiere')
+            obj.filiere = form.cleaned_data.get('filiere')
+            obj.nomProfesseur = form.cleaned_data.get('nomProfesseur')
+            obj.contenu = request.FILES['contenu']
+            obj.save()
+            redirect('home')
+        return render(
+            request=request,
+            template_name=template_name,
+            context=context
+        )
+
+def create_correction(request, *args, **kwargs):
+    template_name = 'create-correction.html'
+    obj = Correction()
+    if request.method == 'POST':
+        form= CorrectionForm(
+            request.POST,
+            request.FILES,
+        )
+        context = {
+            'form':form
+        }
+        if form.is_valid():
+            print(form.cleaned_data)
+            obj.nom = form.cleaned_data.get('nom')
+            obj.matiere = form.cleaned_data.get('matiere')
+            obj.filiere = form.cleaned_data.get('filiere')
+            obj.contenu = request.FILES['contenu']
+            obj.save()
+            redirect('home')
+        return render(
+            request=request,
+            template_name=template_name,
+            context=context
+        )
+
+def update_epreuve(request, *args, **kwargs):
+    template_name = 'create-epreuve.html'
+    obj = get_object_or_404(
+        Epreuve,
+        pk=kwargs.get('pk')
+    )
+    if request.method == 'POST':
+        form= EpreuveForm(
+            request.POST,
+            request.FILES,
+            initial={
+                'nom':obj.nom,
+                'matiere':obj.matiere,
+                'filiere':obj.filiere,
+                'nomProfessseur':obj.nomProfesseur,
+                'contenu':obj.contenu
+            }
+        )
+        context = {
+            'form':form
+        }
+        if form.is_valid():
+            print(form.cleaned_data)
+            obj.nom = form.cleaned_data.get('nom')
+            obj.matiere = form.cleaned_data.get('matiere')
+            obj.filiere = form.cleaned_data.get('filiere')
+            obj.nomProfesseur = form.cleaned_data.get('nomProfesseur')
+            obj.contenu = request.FILES['contenu']
+            obj.save()
+            redirect('home')
+        return render(
+            request=request,
+            template_name=template_name,
+            context=context
+        )
+
+def update_correction(request, *args, **kwargs):
+    template_name = 'create-epreuve.html'
+    obj = get_object_or_404(
+        Correction,
+        pk=kwargs.get('pk')
+    )
+    if request.method == 'POST':
+        form= EpreuveForm(
+            request.POST,
+            request.FILES,
+            initial={
+                'nom':obj.nom,
+                'matiere':obj.matiere,
+                'filiere':obj.filiere,
+                'contenu':obj.contenu
+            }
+        )
+        context = {
+            'form':form
+        }
+        if form.is_valid():
+            print(form.cleaned_data)
+            obj.nom = form.cleaned_data.get('nom')
+            obj.matiere = form.cleaned_data.get('matiere')
+            obj.filiere = form.cleaned_data.get('filiere')
+            obj.contenu = request.FILES['contenu']
+            obj.save()
+            redirect('home')
+        return render(
+            request=request,
+            template_name=template_name,
+            context=context
+        )
