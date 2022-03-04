@@ -36,6 +36,7 @@
       </div>
     </div>
   </nav>
+  {% block content %} {% endblock content %}
   <div>
     <div class="card bg-white">
       <img src= "{% static 'image/img1.jpeg' %}" class="card-img img-fluid" alt="" style="width: 80%; margin-left: 20%;">
@@ -121,7 +122,6 @@
   
 
 
-  {% block content %} {% endblock content %}
 </div>
 
 <script src="{% static 'js/bootstrap.js' %}" ></script>

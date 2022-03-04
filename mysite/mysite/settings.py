@@ -57,7 +57,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(BASE_DIR.joinpath('templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,14 +139,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #user
 AUTH_USER_MODEL = 'Biblio.User'
 
-LOGIN_REDIRECT_URL = '/'
-
-
-LOGIN_REDIRECT_URL = '/biblio/'
+LOGIN_REDIRECT_URL = '/Biblio/templates/index.html'
 LOGIN_URL= '/'
-# TEMPLATE_DIRS = (
-#     BASE_DIR + '/templates/',
-# )
+LOGIN_REDIRECT_URL = '/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
