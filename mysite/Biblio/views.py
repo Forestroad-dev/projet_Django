@@ -11,7 +11,7 @@ from .forms import *
 # Create your views here.
 class LoginView(TemplateView):
 
-  template_name = './login/connexion.html'
+  template_name = 'login.html'
 
   def post(self, request, **kwargs):
 
@@ -145,7 +145,7 @@ def changePassword_user(request,*args,**kwargs):
         return render(request=request,template_name=template_name,context=context,)
 
 def create_epreuve(request, *args, **kwargs):
-    template_name = 'create-epreuve.html'
+    template_name = 'administrateur/create_epreuve.html'
     obj = Epreuve()
     if request.method == 'POST':
         form= EpreuveForm(
@@ -171,7 +171,7 @@ def create_epreuve(request, *args, **kwargs):
         )
 
 def create_correction(request, *args, **kwargs):
-    template_name = 'create-correction.html'
+    template_name = 'administrateur/create_correction.html'
     obj = Correction()
     if request.method == 'POST':
         form= CorrectionForm(
@@ -196,7 +196,7 @@ def create_correction(request, *args, **kwargs):
         )
 
 def update_epreuve(request, *args, **kwargs):
-    template_name = 'create-epreuve.html'
+    template_name = 'administrateur/update_epreuve.html'
     obj = get_object_or_404(
         Epreuve,
         pk=kwargs.get('pk')
@@ -232,7 +232,7 @@ def update_epreuve(request, *args, **kwargs):
         )
 
 def update_correction(request, *args, **kwargs):
-    template_name = 'create-epreuve.html'
+    template_name = 'administrateur/create_epreuve.html'
     obj = get_object_or_404(
         Correction,
         pk=kwargs.get('pk')
