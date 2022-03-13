@@ -79,7 +79,6 @@ class Correction(models.Model):
     contenu = models.FileField(upload_to="corrections/%Y/%m/%d")
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
-    idEpreuve = models.ForeignKey(Epreuve,on_delete=models.CASCADE,related_name="epreuve")
 
     def get_update_url(self):
         return reverse('update',kwargs={'pk':self.id})
