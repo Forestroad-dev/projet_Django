@@ -9,20 +9,43 @@ from .models import *
 from .forms import *
 
 # Create your views here.
-class LoginView(TemplateView):
+# class LoginView(TemplateView):
 
-  template_name = './login/connexion.html'
+#   template_name = './login/connexion.html'
 
-  def post(self, request, **kwargs):
+#   def post(self, request, **kwargs):
 
-    username = request.POST.get('username', False)
-    password = request.POST.get('password', False)
-    user = authenticate(username=username, password=password)
-    if user is not None and user.is_active:
-        login(request, user)
-        return HttpResponseRedirect( settings.LOGIN_REDIRECT_URL )
+#     username = request.POST.get('username', False)
+#     password = request.POST.get('password', False)
+#     user = authenticate(username=username, password=password)
+#     if user is not None and user.is_active:
+#         login(request, user)
+#         return HttpResponseRedirect( settings.LOGIN_REDIRECT_URL )
 
-    return render(request, self.template_name)
+#     return render(request, self.template_name)
+
+def login(request,*args,**kwargs):
+    template_name = './registration/login.html'
+    if request.method == 'POST':
+        form= EpreuveForm(
+            request.POST,
+        )
+        context = {
+            'form':form
+        }
+        if form.is_valid():
+            print(form.cleaned_data)
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None and user.is_active:
+                login(request,user)
+                redirect('home')
+        return render(
+            request=request,
+            template_name=template_name,
+            context=context
+        )
 
 
 class LogoutView(TemplateView):

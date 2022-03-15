@@ -165,3 +165,31 @@ class CorrectionForm(forms.Form):
             }
         )
     )
+
+class LoginForm(forms.Form):
+    username = forms.EmailField(
+        required=True,
+        label="Nom",
+        error_messages={
+            'required':'veuillez saisir votre mail',
+            },
+        widget=forms.TextInput(
+            attrs={
+                'type':'email',
+                'class':'form-control'
+            }
+        )
+    )
+
+    password = forms.CharField(
+        required=True,
+        label="Mot de passe",
+        error_messages={
+            'required':'veuillez saisir votre mot de passe'
+        },
+        widget=forms.PasswordInput(
+            attrs={
+                'class':'form-control'
+            }
+        )
+    )
