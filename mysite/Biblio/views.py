@@ -41,6 +41,11 @@ def login(request,*args,**kwargs):
             if user is not None and user.is_active:
                 login(request,user)
                 redirect('home')
+                return render(
+                    request=request,
+                    template_name=template_name,
+                    context=context
+                )
         return render(
             request=request,
             template_name=template_name,
