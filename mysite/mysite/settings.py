@@ -89,7 +89,7 @@ DATABASES = {
         'NAME': 'groupe4',#base de donnee
         'USER': 'root',
         'PASSWORD': '',
-        'HOST': '127.0.0.1',   # Or an IP Address that your DB is hosted on
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
@@ -139,9 +139,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #user
 AUTH_USER_MODEL = 'Biblio.User'
 
-LOGIN_REDIRECT_URL = '/Biblio/templates/index.html'
+LOGIN_REDIRECT_URL = '/modulesUser/'
 LOGIN_URL= '/'
-LOGIN_REDIRECT_URL = '/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'

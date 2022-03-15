@@ -25,7 +25,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(),name='logout'),
     path('inscription/',create_user,name='inscription'),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('biblio/', login_required(TemplateView.as_view(template_name='biblio.html'))),
+    path('modules/', login_required(TemplateView.as_view(template_name='modulesUser'))),
     path('update/', login_required(update_user),name='update'),
     path('password/', login_required(changePassword_user),name='password'),
     path('create/epreuve', login_required(create_epreuve),name='create_epreuve'),
