@@ -1,0 +1,32 @@
+
+{% extends 'layouts/base2.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{%block css %}
+    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+{% endblock %}
+
+{% block title %} Dashboard {% endblock %}
+
+{%block content %}
+<div class="container mt-5">
+    <div class="row"></div>
+</div>
+<div class="rounded-3 container w-25 h-100 mx-auto  mt-5 shadow-lg" style="background-color: #B4CFB0;border-radius: 25px;" >
+        <div class="col px-5">
+            <h1 class="rounded card-header card-header-divider">ajout epreuve</h1>
+            {% load crispy_forms_tags %}
+            <form method="post" action="" novalidate enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="form-group flex justify-content-center pt-3 pb-5">
+                    <button type="submit" class="bg-green-600 btn btn-success col-4 mr-10">POSTER</button>
+                    <button type="reset" class="bg-red-600 btn btn-danger col-4">ANNULER</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

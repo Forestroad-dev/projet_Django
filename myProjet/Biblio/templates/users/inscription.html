@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block title %} HomePage {% endblock %}
+<div>
+    <!-- ----------------------------  Navigation ---------------------------------------------- -->
+
+    <div class="container">
+      
+      <!-- ----------x------------------  Navigation ------------------------x---------------------- -->
+      <div class="b-example-divider"></div>
+
+
+{% block content %}
+
+<div class="rounded-3 container w-25 h-100 mx-auto  mt-5 shadow-lg" style="background-color: #B4CFB0;border-radius: 25px;" >
+  <h3 class="rounded card-header card-header-divider">INSCRIPTION</h3>
+  <div class="col my-5">
+<form action="" method="post">
+  {% load crispy_forms_tags %}
+  {% csrf_token %}
+  {{ form | crispy }}
+  <!-- <div class="form-group"><input type="text" placeholder="Nom" class="form-control my-3" name="nom"></div>
+  <div class="form-group"><input type="text" placeholder="Prenom" class="form-control my-3" name="prenom"></div>
+  <div class="form-group"><input type="email" placeholder="Email" class="form-control my-3" name="prenom"></div>
+  
+  <label>Profil</label>
+  <select class="form-control" id="Profil" name="profil">
+      <option value="AD">Admin</option>
+      <option value="US">User</option>
+  </select>
+
+  <div class="form-group"><input type="password" placeholder="Mot de passe" class="form-control my-3" name="motdepasse"></div>
+  <div class="form-group"><input type="password" placeholder="Confirmer mot de passe" class="form-control my-3" name="confirmermdp"></div>
+                  
+   <div class="form-group mx-auto text-center mt-5">
+      <button type="submit" class="btn bg-primary text-light">S'inscrire</button> 
+  </div>
+  <div class="btn-group">
+      <strong style="margin-top: 3%;">Deja inscrit ?</strong>
+      <a href="#" class="btn btn-sm-primary"><strong>Se Connecter</strong></a>
+    </div> -->
+    <button type="submit" class="btn btn-primary">Inscrire</button>
+</form>
+      </div>
+</div>
+</div>
+
+<div class="b-example-divider"></div>
+{% endblock content %} 
