@@ -1,0 +1,27 @@
+ce
+Création de l'environnement virtuel
+-> python -m virtualenv env
+
+Puis allez sur le dossier scripts et active l'environnement
+-> activate
+
+Puis on reviens sur le dossier ou se trouve notre environnement
+-> cd ../.. (Pour retourne au dossier)
+
+Ensuite install django
+-> pip install Django
+
+Pour voir la version de django
+-> pip list
+
+Créer le projet principale qui peut contenir plusieur application
+->django-admin startproject mysite
+
+Créer une application
+-> python manage.py startapp polls
+
+Cette commande permet de créer un fichier et de mettre toute les données de l'appli
+->pip3 freeze > requirements.txt
+
+Demarer le serveur
+-> python manage.py runserver

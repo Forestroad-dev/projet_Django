@@ -10,7 +10,6 @@ from django.core.mail import EmailMessage
 from django.core.mail import send_mail
 from django.core.mail import send_mass_mail
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from myProjet.settings import EMAIL_HOST_USER
 from .models import *
 from .forms import *
 
