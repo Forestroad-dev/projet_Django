@@ -2,6 +2,7 @@ import array
 from cProfile import label
 import email
 import gettext
+from webbrowser import BackgroundBrowser
 from django import forms
 from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm, AuthenticationForm
@@ -30,7 +31,7 @@ class CustomUserCreationForm(UserCreationForm,forms.Form):
             }
         )
     )
-    password2=forms.CharField(label='',required=True, max_length=200, strip=True, min_length=2,
+    password2=forms.CharField(label='Confirmer le mot de passe',required=True, max_length=200, strip=True, min_length=2,
          widget=forms.PasswordInput(
             attrs={
                 'type':'password',
@@ -122,9 +123,7 @@ class CustomUserAdmin(UserAdmin):
     )
     search_fields = ('email',)
     ordering = ('email',)
-
-########################################################################################################
-
+    
 class EpreuveForm(forms.ModelForm):
     intitulet = forms.CharField(
         label='',
@@ -148,8 +147,9 @@ class EpreuveForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={
                 'type': 'select',
-                'class': 'form-control',
+                'class': 'form-control ',
                 'placeholder': 'Entrez le nom de la matière ',
+                
 
             }
         )
@@ -249,3 +249,4 @@ class loginForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ('username', 'password')
+

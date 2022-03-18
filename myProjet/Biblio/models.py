@@ -6,8 +6,6 @@ from django.contrib.auth.base_user import BaseUserManager
 from django.urls import reverse
 from django.utils import timezone
 
-# Create your models here.
-#amadou sall
 class CustomUserManager(BaseUserManager):
     """
     Custom user model manager where email is the unique identifiers
@@ -58,10 +56,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     
     def get_update_url(self):
         return reverse('update',kwargs={'pk':self.id})
-        
-    
-#fin amadou sall
-
 
 class Super(models.Model):
     intitulet = models.CharField(max_length=200)
@@ -77,7 +71,6 @@ class Super(models.Model):
     class Meta:
         abstract = True
 
-
 class Epreuve(Super):
     matiere = models.CharField(max_length=200)
     filiere = models.CharField(max_length=200)
@@ -86,9 +79,6 @@ class Epreuve(Super):
 
     def get_url(self):
         return reverse(kwargs={'pk':self.id})
-    
-   
-    
 
 class Correction(Super):
     id_epreuve= models.OneToOneField(Epreuve, on_delete=models.CASCADE)
@@ -97,4 +87,3 @@ class Correction(Super):
     def get_url(self):
         return reverse(kwargs={'pk':self.id})
 
-# Create your models here.
