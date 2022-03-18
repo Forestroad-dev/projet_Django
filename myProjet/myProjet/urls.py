@@ -48,7 +48,7 @@ urlpatterns = [
     path('bibliotheque/corrections/epreuve/<int:pk>', login_required(correction_byEpreuveId),name = 'corrections'),
     path('bibliotheque/update/correction/<int:pk>/', login_required(update_correction), name='update_correction'),
     path('bibliotheque/list_correction/<int:pk>', login_required(list_correction), name='list_correction' ),
-    path('bibliotheque/delete/correction/<int:pk>', login_required(delete_epreuve), name='delete_correction'),
+    path('bibliotheque/delete/correction/<int:pk>', login_required(delete_correction), name='delete_correction'),
 
     path('download/files/<str:path>/',login_required(download), name='download'),
     

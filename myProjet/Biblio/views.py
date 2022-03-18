@@ -409,18 +409,13 @@ def update_correction(request, *args, **kwargs):
                 return redirect('corrections' ,pk=obj.id_epreuve.id) ###Template de view correction
 
 def delete_correction(request, *args, **kwargs):
-    template_name = 'Biblio/delete_epreuve.html' ######Template de suppression
     obj = get_object_or_404(
         Correction,
         pk = kwargs.get('pk')
     )
-    if request.method =="POST":
-        obj.delete()
-        return HttpResponseRedirect("dashboard") ###Template de view correction
-    return render(
-        request=request,
-        template_name=template_name
-        )
+    obj.delete()
+    return redirect("dashboard") ###Template de view epreuve
+    
     
 #download
 
