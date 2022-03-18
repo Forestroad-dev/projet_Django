@@ -9,6 +9,7 @@ from django.conf import settings
 from django.core.mail import EmailMessage
 from django.core.mail import send_mail
 from django.core.mail import send_mass_mail
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 from .models import *
 from .forms import *
@@ -25,6 +26,7 @@ def index(request):
     }
     if(request.user.is_authenticated):
         return redirect('dashboard')
+
     return render(request=request, template_name=template_name, context=context)
 
 def profil(request):
@@ -96,7 +98,7 @@ def create_user(request,*args,**kwargs):
 def update_user(request,*args,**kwargs):
     template_name= 'users/update_user.html'
     current_user = request.user
-     
+
     obj = get_object_or_404(
         User,pk=current_user.id,
     )
@@ -107,7 +109,6 @@ def update_user(request,*args,**kwargs):
               'is_active': obj.is_active,
               'is_fromEsmt': obj.is_fromEsmt,
               'is_newsletter': obj.is_newsletter,
-          
             }
         )
         context = {
@@ -222,6 +223,7 @@ def list_epreuve(request):
     template_name = 'Biblio/dashboard.html'
     epreuves = Epreuve.objects.order_by('-id').all()
     corrections = Correction.objects.order_by('-id').all()
+  
     context ={
         'epreuves' : epreuves,
         'corrections': corrections,

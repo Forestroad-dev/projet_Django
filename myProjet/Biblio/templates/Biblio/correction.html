@@ -13,10 +13,11 @@
     <div class="row"></div>
 </div>
 <div class="container mt-5 mb-5">
-    <div class="row row-cols-3 row-cols-lg-4">
+    
+    <div class="row row-cols-3 row-cols-lg-4" style="margin-left: 35%;">
         {% for correction in corrections %}
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="card shadow-xl mt-3 rounded">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-5">
+            <div class="card shadow-xl mt-3 rounded" style="background-color: #B4CFB0;">
                 <div class="align-items-center p-2 text-center">
                     <div class="card-body mt-3 info">
                         <h5 class="card-title"><strong> Titre: </strong><strong>{{ correction.intitulet }}</strong></h5>
@@ -26,13 +27,13 @@
                         <p class="text-start"> <strong>prof:</strong>
                             {{ epreuve.professeur }}</p>
                      
-                    <div class="row my-3">
-                        <a href="/read/{{ correction.file }}" class="btn-sm btn-success border-1 col-4 mr-3 ">Voir</a>
-                        <a href="/download/{{correction.file }}" class="btn-sm btn-success border-1 col-5">Télécharger</a>
+                    <div class="row my-3" style="margin-left: 15%;">
+                        <a href="/read/{{ correction.file }}" class="btn-sm btn border-1 col-5 mr-3 "style="background-color: #E5E3C9 ; color:black;">Voir</a>
+                        <a href="/download/{{correction.file }}" class="btn-sm btn border-1 col-5"style="background-color: #E5E3C9 ;">Télécharger</a>
                     </div>                   
-                    <div class="row mb-3">
-                    <a href="{% url 'update_correction' correction.id %}" class="btn-sm btn-success border-1 col-4 mr-3">Update</a>
-                    <a href="{% url 'delete_correction' correction.id %}" class="btn-sm btn-success border-1 col-4 mr-3">Delete</a>
+                    <div class="row mb-3" style="margin-left: 15%;">
+                    <a href="{% url 'update_correction' correction.id %}" class="btn-sm btn border-1 col-5 mr-3"style="background-color: #E5E3C9 ; color:black;">Update</a>
+                    <a href="{% url 'delete_correction' correction.id %}" class="btn-sm btn border-1 col-5 mr-3"style="background-color: #E5E3C9 ; color:black;">Delete</a>
                     </div>
 
                 </div>

@@ -1,0 +1,7 @@
+Exo 1:
+Creer un projet JAVA EE qui contient un formulaire jsp de saisie des informations d'un produit 
+une classe Produit, une page jsp de récuperation, qui utilise la classe Produit 
+cette page aura une methode qui calcule le montant hors taxe d'un produit et une autre methode qui calcule le montant avec taxe
+Toutes ces données sont envoyées vers un formulaire recapitulatif.jsp .
+Utilisez les balises d'action pour cette transmission avec passage de parametre.
+Creez la page jsp presentation qui vous presente et utilisez la dans toutes les autres pages jsp(on fait de l'inclusion)
