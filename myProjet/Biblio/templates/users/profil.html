@@ -1,0 +1,33 @@
+{% extends 'layouts/base2.html' %}
+
+{% load static %}
+
+{%block css %}
+<!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+{% endblock %}
+
+{% block title %} Dashboard {% endblock %}
+
+{%block content %}
+
+<div class="container mt-5 mb-5 h-100" style="margin-left: 38%;" >
+    <div class="row-cols-lg-4">
+        <div class="card shadow-xl mt-3 rounded col" style="background-color:#90A68D ;">
+            <div class="p-2 text-center">
+                <span class="text-6xl"><i class="fa-solid fa-user"></i> </span>
+                <div class="card-body mt-3 info">
+                    <h5 class="card-title"><strong>{{ request.user }}</strong></h5>
+                </div>
+                <div class="btn-group btn-lg">
+                <div class="col-5 mx-auto ">
+                    <a href="{% url 'update' %}" class="btn btn-outline-success ">Modifier info </a>
+                </div>
+                <div class="col-5 mx-auto">
+                    <a href="{% url 'password' %}" class="btn btn-outline-secondary ">Changer password</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
