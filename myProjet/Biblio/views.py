@@ -1,4 +1,6 @@
+from multiprocessing import context
 import os
+from re import template
 from django.contrib.auth import update_session_auth_hash
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth import authenticate, login, logout
@@ -433,3 +435,28 @@ def download(request, *args, **kwargs):
     raise Http404
 
 #mail
+def contacts(request, *args, **kwargs):
+    template_name='contacts.html'
+    form = contactForm()
+    if request.method == 'POST':
+        form = contactForm(request.POST)
+        if form.is_valid():
+            msg_title = 'Abonnement au newsletter'
+            msg_content = str(form.cleaned_data.get('email'))
+            target_mail = str(form.cleaned_data.get('message'))
+            
+            send_mail(
+                msg_title,
+                target_mail,
+                'contact@mydomain.com',
+                [msg_content],
+                fail_silently=False
+            )
+    context = {
+        'form':form
+    }
+    return render(
+        request=request,
+        template_name=template_name,
+        context=context
+    )

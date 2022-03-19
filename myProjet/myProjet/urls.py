@@ -32,6 +32,7 @@ urlpatterns = [
     path('login/', views.LoginView.as_view(template_name='users/login.html', authentication_form=loginForm, redirect_authenticated_user=True), name='login'),
     path('logout/', views.LogoutView.as_view(), name='logout'),
     path('inscription/', create_user, name='inscription'),
+    path('contact/', contacts, name='contacts'),
     path('profil/update_user/', login_required(update_user), name='update'),
     path('profil/change_password/', login_required(changePassword_user), name='password'),
     path('bibliotheque/dashboard/', login_required(dashboard), name='dashboard'),

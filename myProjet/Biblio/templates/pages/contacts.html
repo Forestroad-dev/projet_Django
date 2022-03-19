@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block title %} HomePage {% endblock %}
+
+
+{% block content %}
+    <h1>contacts</h1>
+
+    <form action="" method="POST" novalidate>
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">envoyer</button>
+    </form>
+{% endblock content %}

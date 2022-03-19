@@ -250,3 +250,14 @@ class loginForm(AuthenticationForm):
         model = User
         fields = ('username', 'password')
 
+class contactForm(forms.Form):
+    email = forms.EmailField(
+        required=True,
+        max_length=50,
+        min_length=2,
+        widget=forms.EmailInput(
+            attrs={
+                'type':'email'
+            }
+        )
+    )
