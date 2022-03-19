@@ -126,7 +126,6 @@ AUTH_USER_MODEL = 'Biblio.User'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL= 'login'
 
-# Sans connexion il m'envoie vers la page de connexion
 LOGIN_URL = 'login'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

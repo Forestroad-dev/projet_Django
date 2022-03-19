@@ -17,7 +17,7 @@ from django.core.mail import send_mail
 # Create your views here.
 
 def index(request):
-    template_name = 'pages/home.html'  ###Template de view correction
+    template_name = 'pages/home.html'  
     corrections = Correction.objects.all()
     epreuves = Epreuve.objects.all()
     context ={
@@ -32,7 +32,7 @@ def index(request):
 def profil(request):
     return render(request, 'users/profil.html' )
 
-# Utilisateurs
+
 class LoginView(TemplateView):
 
     template_name = 'users/login.html'
@@ -56,7 +56,7 @@ class LogoutView(TemplateView):
     return render(request, self.template_name)
 
 def dashboard(request):
-    template_name = 'Biblio/dashboard.html'  ###Template de view correction
+    template_name = 'Biblio/dashboard.html'  
     corrections = Correction.objects.all()
     epreuves = Epreuve.objects.all()
     context ={
@@ -167,13 +167,13 @@ def changePassword_user(request,*args,**kwargs):
         if form.is_valid():
           print(form.cleaned_data)
           user = form.save
-          update_session_auth_hash(request, user)  # Important!
+          update_session_auth_hash(request, user)  
           return redirect('home')
         return render(request=request,template_name=template_name,context=context,)
 
 def add_epreuve(request, **kwargs):
     
-    template_name = 'Biblio/add_epreuve.html' ###Template de add epreuve
+    template_name = 'Biblio/add_epreuve.html' 
     
     current_user = request.user
     obj = get_object_or_404(
@@ -219,7 +219,6 @@ def add_epreuve(request, **kwargs):
     return render(request=request, template_name=template_name, context=context)
 
 def list_epreuve(request):
-    # Liste des épreuve les plus récentesS
     template_name = 'Biblio/dashboard.html'
     epreuves = Epreuve.objects.order_by('-id').all()
     corrections = Correction.objects.order_by('-id').all()
@@ -231,7 +230,7 @@ def list_epreuve(request):
     return render(request=request, template_name=template_name, context=context)
 
 def details_epreuve(request, pk):
-    template_name = 'Biblio/details.html'  ###Template de view correction
+    template_name = 'Biblio/details.html' 
     epreuve = Epreuve.objects.get(pk=pk)
 
     context = {
@@ -240,7 +239,7 @@ def details_epreuve(request, pk):
     return render(request=request, template_name=template_name, context=context)
 
 def update_epreuve(request, *args, **kwargs):
-    template_name = 'Biblio/update_epreuve.html' ###Template de update epreuve
+    template_name = 'Biblio/update_epreuve.html' 
     obj = get_object_or_404(
         Epreuve,
         pk = kwargs.get('pk')
@@ -285,23 +284,22 @@ def update_epreuve(request, *args, **kwargs):
                 obj.deleteFile()
             obj.file = form.cleaned_data.get('file')
             obj.save()
-            return redirect('dashboard') ###Template de view epreuve
+            return redirect('dashboard') 
         
         return render(request=request, template_name=template_name ,context=context)
 
 def delete_epreuve(request, *args, **kwargs):
-    # template_name = 'Biblio/delete_epreuve.html'  ###Template de suppression 
+    
     obj = get_object_or_404(
         Epreuve,
         pk = kwargs.get('pk')
     )
     obj.delete()
-    return redirect("dashboard") ###Template de view epreuve
+    return redirect("dashboard") 
     
-#### Correction
 
 def add_correction(request, **kwargs):
-    template_name = 'Biblio/add_correction.html' ###Template de add correction
+    template_name = 'Biblio/add_correction.html' 
     current_user = request.user
     obj1 = get_object_or_404(
         User,pk=current_user.id,
@@ -347,7 +345,7 @@ def add_correction(request, **kwargs):
         return render(request=request,template_name=template_name,context=context,)
 
 def list_correction(request, **kwargs):
-    template_name = 'Biblio/correction.html'  ###Template de view correction
+    template_name = 'Biblio/correction.html'  
     corrections = Correction.objects.order_by('-id').all()
     context ={
         'corrections' : corrections,
@@ -355,10 +353,10 @@ def list_correction(request, **kwargs):
     return render(request=request, template_name=template_name, context=context)
 
 def correction_byId(request, **kwargs):
-    template_name = 'Biblio/view_correction.html'  ###Template de view correction
+    template_name = 'Biblio/view_correction.html'  
 
 def correction_byEpreuveId(request, **kwargs):
-    template_name = 'Biblio/correction.html'  ###Template de view correction
+    template_name = 'Biblio/correction.html'  
     obj = get_object_or_404(
         Epreuve,
         pk = kwargs.get('pk')
@@ -372,7 +370,7 @@ def correction_byEpreuveId(request, **kwargs):
     return render(request=request, template_name=template_name, context=context)
 
 def update_correction(request, *args, **kwargs):
-    template_name = 'Biblio/update_correction.html' ###Template de update correction
+    template_name = 'Biblio/update_correction.html' 
     obj = get_object_or_404(
             Correction,
             pk = kwargs.get('pk')
@@ -408,7 +406,7 @@ def update_correction(request, *args, **kwargs):
                     obj.deleteFile()
                 obj.file = form.cleaned_data.get('file')
                 obj.save()
-                return redirect('corrections' ,pk=obj.id_epreuve.id) ###Template de view correction
+                return redirect('corrections' ,pk=obj.id_epreuve.id) 
 
 def delete_correction(request, *args, **kwargs):
     obj = get_object_or_404(
@@ -416,10 +414,7 @@ def delete_correction(request, *args, **kwargs):
         pk = kwargs.get('pk')
     )
     obj.delete()
-    return redirect("dashboard") ###Template de view epreuve
-    
-    
-#download
+    return redirect("dashboard") 
 
 def download(request, *args, **kwargs):
     path=kwargs.get('path')
@@ -429,11 +424,8 @@ def download(request, *args, **kwargs):
             response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
             response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
             return response
-        
-    # return HttpResponseRedirect( settings.LOGIN_REDIRECT_URL )
     raise Http404
 
-#mail
 def contacts(request, *args, **kwargs):
 
     template_name = 'contacts.html'
