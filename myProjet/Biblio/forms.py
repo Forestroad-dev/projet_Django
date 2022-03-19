@@ -261,7 +261,3 @@ class contactForm(forms.Form):
             }
         )
     )
-    message = forms.CharField(
-        required=True,
-        widget=forms.Textarea
-    )
